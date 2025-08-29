@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIV/AIDS em Foco — Informação, História e Direitos</title>
+<meta name="description" content="Projeto de extensão: informação, direitos, políticas e histórico sobre HIV/AIDS. Produzido por estudantes de Direito.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+:root{
+  --bg:#fefdf9;
+  --text:#1c1c1c;
+  --muted:#555;
+  --accent:#003366;
+  --accent-light:#005b96;
+  --card:#ffffff;
+  --radius:20px;
+  --maxw:1300px;
+  --gap:32px;
+  --transition:.35s ease-in-out;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+a{color:var(--accent);text-decoration:none;transition:var(--transition);}
+a:hover{text-decoration:underline;}
+button{cursor:pointer;border:none;border-radius:12px;padding:14px 28px;font-weight:600;transition:var(--transition);}
+button.primary{background:var(--accent);color:white;}
+button.primary:hover{opacity:0.9;transform:translateY(-2px);}
+button.secondary{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
+button.secondary:hover{background:var(--accent);color:white;transform:translateY(-2px);}
+
+.container{max-width:var(--maxw);margin:0 auto;padding:50px 20px;}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  border-bottom:1px solid #e0e0e0;
+  position:sticky;
+  top:0;
+  background:var(--bg);
+  z-index:100;
+  box-shadow:0 4px 20px rgba(0,0,0,0.03);
+}
+nav a{margin-left:24px;font-weight:500;font-size:15px; text-transform:uppercase; letter-spacing:0.5px; transition:color 0.3s;}
+nav a:hover{color:#0077b6; border-bottom:2px solid #0077b6; padding-bottom:2px;}
+
+@media(max-width:800px){
+  header{flex-direction:column; align-items:center; gap:10px;}
+  header nav{flex-direction:column; gap:15px;}
+}
+
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;margin:100px 0;}
+.hero h1{font-size:48px;font-weight:700;margin-bottom:16px;color:var(--accent);}
+.hero p{font-size:20px;margin-bottom:32px;color:var(--muted);}
+.hero .highlight{font-size:28px;font-weight:600;color:var(--accent-light);}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;}
+
+section{margin-top:100px;opacity:0;transform:translateY(30px);transition:opacity .8s ease-out, transform .8s ease-out;}
+section.visible{opacity:1;transform:translateY(0);}
+h2{font-size:36px;margin-bottom:32px;font-weight:700;color:var(--text);border-left:4px solid var(--accent);padding-left:16px;}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);}
+@media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+
+.timeline{position:relative;display:flex;flex-direction:column;gap:40px;margin-top:40px;}
+.timeline::before{content:'';position:absolute;left:20px;top:0;width:4px;height:100%;background:var(--accent-light);}
+.timeline-item{position:relative;padding-left:60px;}
+.timeline-item::before{content:'';position:absolute;left:12px;top:0;width:16px;height:16px;background:var(--accent);border-radius:50%;}
+
+.stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:32px;}
+.stat{flex:1;min-width:200px;background:var(--card);padding:32px;border-radius:var(--radius);text-align:center;box-shadow:0 12px 32px rgba(0,0,0,0.08);transition:transform var(--transition);}
+.stat:hover{transform:translateY(-4px);}
+.stat h4{margin-bottom:12px;font-size:28px;color:var(--accent);}
+.stat small{color:var(--muted);display:block;margin-top:8px;}
+
+.media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap);}
+@media(max-width:800px){.media-grid{grid-template-columns:1fr;}}
+
+.card{background:var(--card);padding:32px;border-radius:var(--radius);box-shadow:0 12px 32px rgba(0,0,0,0.08);transition:transform var(--transition);}
+.card:hover{transform:translateY(-6px);}
+.card h3{margin-bottom:16px;color:var(--accent);font-size:22px;}
+
+.video-wrapper{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);box-shadow:0 12px 32px rgba(0,0,0,0.08);}
+.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
+footer{margin-top:100px;padding:50px 20px;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid #eee;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<header>
+  <div style="display:flex; flex-direction:column;">
+    <h1 style="font-size:1.8rem; color:var(--accent); margin:0; font-weight:700;">HIV/AIDS em Foco</h1>
+    <small style="font-size:0.85rem; color:var(--muted);">Projeto de Extensão - UNICIR</small>
+  </div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#direitos">Direitos</a>
+    <a href="#ongs">ONGs</a>
+    <a href="#midia">Mídia</a>
+  </nav>
+</header>
+<!-- Hero -->
+<section class="hero" id="sobre">
+  <h1>HIV e AIDS: Conhecimento para um futuro sem medo</h1>
+  <p>
+    Conheça a história, dados e direitos das pessoas vivendo com HIV, com informações confiáveis e atualizadas.
+  </p>
+  <div class="hero-buttons">
+    <button class="primary" onclick="document.getElementById('historico').scrollIntoView({behavior:'smooth'})">
+      Explorar História
+    </button>
+    <button class="secondary" onclick="document.getElementById('dados').scrollIntoView({behavior:'smooth'})">
+      Ver Estatísticas
+    </button>
+  </div>
+</section>
+
+<!-- Seção: O que é o HIV e a AIDS – Profissional e Didática -->
+<section id="sobre-hiv" style="padding:100px 20px; font-family:'Inter', sans-serif; text-align:center;">
+  <div class="container" style="max-width:900px; margin:0 auto;">
+
+    <h2 style="font-size:3rem; color:#003366; margin-bottom:30px; font-weight:700;">Entendendo o HIV e a AIDS</h2>
+
+    <p style="font-size:1.2rem; color:#555; line-height:1.8; margin-bottom:20px;">
+      O <strong style="color:#003366;">HIV (Vírus da Imunodeficiência Humana)</strong> é um vírus que ataca o <strong>sistema imunológico</strong>, a defesa natural do corpo contra infecções e doenças.
+    </p>
+
+    <p style="font-size:1.2rem; color:#555; line-height:1.8; margin-bottom:20px;">
+      Sem tratamento adequado, o HIV pode evoluir para a <strong style="color:#003366;">AIDS (Síndrome da Imunodeficiência Adquirida)</strong>, estágio avançado da infecção, quando a capacidade do organismo de combater doenças fica seriamente comprometida.
+    </p>
+
+    <p style="font-size:1.2rem; color:#555; line-height:1.8;">
+      Com informação e prevenção, é possível controlar a infecção e garantir qualidade de vida, reduzindo riscos e mantendo a imunidade.
+    </p>
+
+  </div>
+</section>
+<!-- Cards explicativos -->
+<div class="centered-cards">
+  <div class="info-card">
+    <i class="fas fa-virus"></i>
+    <h3>Como o HIV atua</h3>
+    <p>O HIV infecta os <strong>linfócitos T CD4+</strong>, utilizando a maquinaria celular para se multiplicar e comprometendo a defesa do organismo.</p>
+  </div>
+
+  <div class="info-card">
+    <i class="fas fa-exchange-alt"></i>
+    <h3>HIV vs AIDS</h3>
+    <p><strong>HIV</strong> é o vírus presente mesmo sem sintomas imediatos. <strong>AIDS</strong> é o estágio avançado, com imunodeficiência grave.</p>
+  </div>
+
+  <div class="info-card">
+    <i class="fas fa-shield-alt"></i>
+    <h3>Impactos e Prevenção</h3>
+    <p>Medidas preventivas incluem preservativos, testagem regular, PrEP e tratamento antirretroviral, garantindo qualidade de vida.</p>
+  </div>
+</div>
+
+<style>
+/* Cards explicativos */
+.centered-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.info-card {
+  background: var(--card);
+  padding: 30px 25px;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+  transition: transform var(--transition), box-shadow var(--transition);
+  text-align: center;
+  flex: 1 1 280px;
+  max-width: 320px;
+}
+
+.info-card i {
+  font-size: 40px;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.info-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.info-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 900px) {
+  .centered-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+}
+</style>
+<!-- Seção: Formas de Transmissão do HIV -->
+<section id="formas-transmissao">
+  <div class="container">
+    <h2>Principais Formas de Transmissão</h2>
+
+    <!-- Timeline de transmissão -->
+    <div class="transmission-timeline">
+      <div class="timeline-card">
+        <div class="timeline-icon"><i class="fas fa-venus-mars"></i></div>
+        <div class="timeline-content">
+          <h3>Relações Sexuais sem Proteção</h3>
+          <p>O HIV pode ser transmitido através de relações sexuais sem uso adequado de preservativos.</p>
+          <p><strong>Atenção:</strong> Relações com mucosa fragilizada (ex.: retal) apresentam maior risco.</p>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-icon"><i class="fas fa-baby"></i></div>
+        <div class="timeline-content">
+          <h3>Transmissão Vertical (Mãe para Filho)</h3>
+          <p>O vírus pode ser transmitido durante gestação, parto ou amamentação, caso a mãe viva com HIV.</p>
+          <p><strong>Importante:</strong> Tratamento antirretroviral adequado reduz o risco para menos de 1%.</p>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-icon"><i class="fas fa-syringe"></i></div>
+        <div class="timeline-content">
+          <h3>Compartilhamento de Seringas e Agulhas</h3>
+          <p>O uso compartilhado de seringas ou instrumentos perfurocortantes contaminados representa risco direto.</p>
+        </div>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-icon"><i class="fas fa-tint"></i></div>
+        <div class="timeline-content">
+          <h3>Transfusões e Transplantes</h3>
+          <p>Risco extremamente baixo quando realizados seguindo protocolos oficiais do SUS.</p>
+          <div class="safety-note">
+            Transfusões e transplantes feitos corretamente são seguros e com risco muito baixo de HIV.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Boxes de confirmação -->
+    <div class="transmission-container">
+      <div class="transmission-box confirmed">
+        <div class="icon-circle"><i class="fas fa-exclamation-triangle"></i></div>
+        <h3>Transmissão Confirmada</h3>
+        <ul>
+          <li>Relações sexuais sem preservativos;</li>
+          <li>Compartilhamento de seringas ou agulhas;</li>
+          <li>Transfusões de sangue ou transplantes sem triagem adequada;</li>
+          <li>Da mãe infectada para o filho durante gestação, parto ou amamentação.</li>
+        </ul>
+      </div>
+
+      <div class="transmission-box not-confirmed">
+        <div class="icon-circle"><i class="fas fa-check-circle"></i></div>
+        <h3>Transmissão Não Ocorrente</h3>
+        <ul>
+          <li>Relações sexuais com preservativos;</li>
+          <li>Toque íntimo consensual;</li>
+          <li>Beijo, abraço ou contato físico casual;</li>
+          <li>Suor, lágrimas ou saliva;</li>
+          <li>Compartilhamento de objetos do cotidiano;</li>
+          <li>Uso de assentos, banheiros ou piscinas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Seção de Transmissão */
+#formas-transmissao {
+  padding: 100px 20px;
+  background: var(--bg);
+  text-align: center;
+}
+
+#formas-transmissao h2 {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 60px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Timeline */
+.transmission-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 80px auto;
+}
+
+.timeline-card {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+  transition: transform 0.4s, box-shadow 0.4s;
+  flex: 1 1 300px;
+  max-width: 350px;
+  text-align: center;
+}
+
+.timeline-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+}
+
+.timeline-icon {
+  font-size: 36px;
+  color: var(--accent-light);
+  background: #e6f0fb;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px auto;
+  transition: transform 0.4s;
+}
+
+.timeline-card:hover .timeline-icon {
+  transform: scale(1.2);
+}
+
+.timeline-card h3 {
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.timeline-card p {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.safety-note {
+  margin-top: 15px;
+  padding: 12px 15px;
+  background: #e6f7ff;
+  border-left: 4px solid #0099cc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+/* Boxes de transmissão */
+.transmission-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.transmission-box {
+  background: var(--card);
+  border-radius: 25px;
+  padding: 50px 30px;
+  flex: 1 1 360px;
+  max-width: 480px;
+  text-align: left;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.transmission-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.transmission-box.confirmed .icon-circle {
+  background: #ffe5e5;
+  color: #ff6b6b;
+}
+
+.transmission-box.not-confirmed .icon-circle {
+  background: #e5f7f5;
+  color: #4ecdc4;
+}
+
+.transmission-box:hover .icon-circle {
+  transform: scale(1.1);
+}
+
+.transmission-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: var(--accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.transmission-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transmission-box li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 12px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.transmission-box li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+  .transmission-timeline,
+  .transmission-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-card,
+  .transmission-box {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .transmission-box h3 {
+    justify-content: center;
+  }
+}
+</style>
+<!-- Seção: Dados Importantes Dinâmicos -->
+<section id="dados">
+  <div class="container">
+    <h2>Dados Relevantes sobre HIV/AIDS</h2>
+
+    <div class="stats-container">
+      <!-- Mundo -->
+      <div class="stat-box">
+        <h3>Mundo</h3>
+        <div class="stat-number" data-target="39900000">0</div>
+        <p>Pessoas vivendo com HIV</p>
+        <div class="progress-bar">
+          <div class="progress-fill" data-fill="80%"></div>
+        </div>
+        <p class="stat-source">
+          Fonte: <a href="https://www.unaids.org/sites/default/files/media/documents/UNAIDS_FactSheet_pt-br.pdf" target="_blank">UNAIDS 2023</a>
+        </p>
+      </div>
+
+      <!-- Brasil -->
+      <div class="stat-box">
+        <h3>Brasil</h3>
+        <div class="stat-number" data-target="489594">0</div>
+        <p>Casos notificados desde 2007</p>
+        <div class="progress-bar">
+          <div class="progress-fill" data-fill="50%"></div>
+        </div>
+        <p class="stat-source">
+          Fonte: <a href="https://www.gov.br/aids/pt-br/central-de-conteudo/boletins-epidemiologicos/2023/hiv-aids/boletim-epidemiologico-hiv-e-aids-2023.pdf" target="_blank">Ministério da Saúde 2023</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção: Histórico e Marco Legal -->
+<section id="historico">
+  <div class="container">
+    <h2>Histórico e Marco Legal</h2>
+
+    <div class="timeline-modern">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <strong>1981:</strong> Primeiros casos de AIDS relatados nos EUA; alerta global à nova epidemia.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <strong>1985:</strong> Brasil inicia campanhas de prevenção e testagem, pioneiro em políticas públicas.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <strong>1996:</strong> Introdução da terapia antirretroviral combinada, revolucionando a expectativa de vida.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <strong>2001:</strong> ONU lança a Declaração de Compromisso sobre HIV/AIDS.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <strong>2016:</strong> Meta “90-90-90” da UNAIDS: 90% diagnosticados, 90% em tratamento, 90% com carga viral controlada.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <strong>2025:</strong> Avanços em prevenção e redução de estigma continuam, integrando políticas de saúde e direitos humanos.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Geral para ambas seções */
+#dados, #historico {
+  padding: 100px 20px;
+  background: var(--bg);
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+#dados h2, #historico h2 {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+/* Stats */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 40px 30px;
+  flex: 1 1 350px;
+  max-width: 450px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.stat-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+}
+
+.stat-box h3 {
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  background: #e0e0e0;
+  height: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-fill {
+  background: var(--accent);
+  height: 100%;
+  width: 0;
+  border-radius: 8px;
+  transition: width 2s ease;
+}
+
+.stat-source {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* Timeline */
+.timeline-modern {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.timeline-modern::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 0 20px;
+  margin: 40px 0;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background: #005b96;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.timeline-item:hover::before {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.timeline-content {
+  display: inline-block;
+  background: var(--card);
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: 30px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 30px;
+}
+
+/* Responsividade */
+@media(max-width: 800px) {
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-box {
+    max-width: 90%;
+  }
+  .timeline-item {
+    width: 100%;
+    text-align: center !important;
+  }
+  .timeline-item .timeline-content {
+    margin: 10px auto !important;
+  }
+}
+
+/* Animação dos contadores */
+</style>
+
+<script>
+// Contagem animada dos números
+document.querySelectorAll('.stat-number').forEach(counter => {
+  const target = +counter.getAttribute('data-target');
+  let count = 0;
+  const increment = target / 200;
+  const updateCount = () => {
+    count += increment;
+    if(count < target){
+      counter.innerText = Math.ceil(count).toLocaleString();
+      requestAnimationFrame(updateCount);
+    } else {
+      counter.innerText = target.toLocaleString();
+    }
+  };
+  updateCount();
+});
+
+// Preenchimento das barras
+document.querySelectorAll('.progress-fill').forEach(fill => {
+  const width = fill.getAttribute('data-fill');
+  setTimeout(() => {
+    fill.style.width = width;
+  }, 500);
+});
+</script>
+<!-- DIREITOS - Minimalista e Moderno -->
+<section id="direitos-overview">
+  <div class="container">
+    <h2>Direitos das Pessoas Vivendo com HIV/AIDS</h2>
+    <p>
+      A legislação brasileira garante dignidade, cidadania e igualdade às pessoas vivendo com HIV/AIDS.  
+      Conheça os principais direitos assegurados.
+    </p>
+
+    <!-- Grid de direitos -->
+    <div class="direitos-grid">
+      <div class="direito-card">
+        <i class="fas fa-hospital-user"></i>
+        <h3>Tratamento Universal</h3>
+        <p>Acesso gratuito e contínuo a medicamentos antirretrovirais, assegurado pelo SUS.</p>
+      </div>
+      <div class="direito-card">
+        <i class="fas fa-user-lock"></i>
+        <h3>Sigilo e Privacidade</h3>
+        <p>Proteção legal dos dados de saúde, evitando discriminação e garantindo confidencialidade.</p>
+      </div>
+      <div class="direito-card">
+        <i class="fas fa-balance-scale"></i>
+        <h3>Direitos Trabalhistas</h3>
+        <p>Garantia de ambiente de trabalho digno, com proteção contra demissões discriminatórias.</p>
+      </div>
+      <div class="direito-card">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>Previdência e Assistência</h3>
+        <p>Auxílio-doença, aposentadoria por incapacidade e benefícios assistenciais previstos em lei.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accordion: Direitos e Benefícios -->
+<section id="direitos">
+  <div class="container">
+    <h2>Direitos e Benefícios</h2>
+    <p>
+      Conheça os direitos, benefícios e serviços disponíveis para pessoas vivendo com HIV/AIDS no Brasil, com base em leis e normas oficiais.
+    </p>
+
+    <div class="accordion-container">
+      <div class="accordion-item">
+        <button class="accordion-button">Atendimento de Saúde pelo SUS</button>
+        <div class="accordion-content">
+          <ul>
+            <li>Medicamentos antirretrovirais gratuitos em unidades credenciadas.</li>
+            <li>Consultas médicas periódicas com especialistas.</li>
+            <li>Exames laboratoriais de carga viral e CD4.</li>
+          </ul>
+          <p><strong>Base legal:</strong> <a href="https://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identificacao/lei%208.080-1990?OpenDocument" target="_blank">Lei nº 8.080/1990</a></p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button">Benefícios Previdenciários (INSS)</button>
+        <div class="accordion-content">
+          <ul>
+            <li>Auxílio-doença para incapacidade temporária.</li>
+            <li>Aposentadoria por invalidez em caso de incapacidade permanente.</li>
+            <li>Reabilitação profissional para reintegração ao trabalho.</li>
+          </ul>
+          <p><strong>Base legal:</strong> <a href="https://legislacao.planalto.gov.br/legisla/legislacao.nsf/Viw_Identificacao/lei%208.213-1991?OpenDocument" target="_blank">Lei nº 8.213/1991</a></p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button">Benefício de Prestação Continuada (BPC/LOAS)</button>
+        <div class="accordion-content">
+          <ul>
+            <li>Salário mínimo mensal para pessoas com HIV/AIDS que comprovem deficiência ou idade acima de 65 anos.</li>
+            <li>Suporte social e inclusão assistencial.</li>
+          </ul>
+          <p><strong>Base legal:</strong> <a href="https://www.planalto.gov.br/ccivil_03/leis/l8742.htm" target="_blank">Lei nº 8.742/1993</a></p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button">Direitos Trabalhistas</button>
+        <div class="accordion-content">
+          <ul>
+            <li>Proteção contra discriminação no ambiente de trabalho.</li>
+            <li>Sigilo sobre a condição de saúde do trabalhador.</li>
+            <li>Adaptação razoável do ambiente laboral, quando necessário.</li>
+          </ul>
+          <p><strong>Base legal:</strong> Constituição Federal de 1988</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button">Educação e Inclusão Social</button>
+        <div class="accordion-content">
+          <ul>
+            <li>Direito à educação em todos os níveis, sem discriminação.</li>
+            <li>Participação em programas de inclusão social com orientação e suporte psicológico.</li>
+          </ul>
+          <p><strong>Base legal:</strong> Constituição Federal de 1988</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Containers */
+#direitos-overview, #direitos {
+  padding: 100px 20px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  background: var(--bg);
+}
+#direitos-overview h2, #direitos h2 {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+#direitos-overview p, #direitos p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+}
+
+/* Grid de Direitos */
+.direitos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+.direito-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;
+}
+.direito-card i {
+  font-size: 32px;
+  margin-bottom: 18px;
+  color: var(--accent);
+}
+.direito-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+.direito-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.direito-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* Accordion */
+.accordion-container { display: flex; flex-direction: column; gap: 20px; text-align: left; max-width: 900px; margin: 0 auto; }
+.accordion-button {
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  padding: 18px 25px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+.accordion-button:hover { background: var(--accent-light); }
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  background: var(--card);
+  padding: 0 25px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+.accordion-content ul { margin: 15px 0; padding-left: 20px; }
+.accordion-content p { margin-bottom: 15px; color: var(--muted); font-size: 0.95rem; }
+.accordion-item.active .accordion-content { padding: 15px 25px; }
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .direito-card { padding: 24px 16px; }
+  .direito-card h3 { font-size: 1.2rem; }
+  .accordion-button { font-size: 1rem; padding: 14px 20px; }
+}
+</style>
+
+<script>
+// Accordion funcional: abre apenas um item por vez
+const accordionItems = document.querySelectorAll('.accordion-item');
+accordionItems.forEach(item => {
+  const button = item.querySelector('.accordion-button');
+  button.addEventListener('click', () => {
+    accordionItems.forEach(i => {
+      if(i !== item) {
+        i.classList.remove('active');
+        i.querySelector('.accordion-content').style.maxHeight = null;
+      }
+    });
+    item.classList.toggle('active');
+    const content = item.querySelector('.accordion-content');
+    content.style.maxHeight = item.classList.contains('active') ? content.scrollHeight + "px" : null;
+  });
+});
+</script>
+<!-- ONGs Modernizadas -->
+<section id="ongs">
+  <div class="container">
+    <h2>ONGs que Acolhem Pessoas com HIV/AIDS</h2>
+    <p>
+      Conheça organizações que oferecem suporte, acolhimento e orientação para pessoas vivendo com HIV/AIDS.
+    </p>
+
+    <!-- Grid de ONGs -->
+    <div class="ongs-grid">
+      <a href="https://www.instagram.com/gtposithivo/" target="_blank" class="ong-card">
+        <h3>GTPOSITIVO <span>(PB)</span></h3>
+        <p>Acolhimento e apoio para pessoas vivendo com HIV na Paraíba.</p>
+      </a>
+
+      <a href="https://www.instagram.com/gestospe/" target="_blank" class="ong-card">
+        <h3>Gestos <span>(PE)</span></h3>
+        <p>Organização focada em acolhimento e prevenção do HIV em Pernambuco.</p>
+      </a>
+
+      <a href="https://www.instagram.com/pelaviddarj/" target="_blank" class="ong-card">
+        <h3>Pela Vida <span>(RJ)</span></h3>
+        <p>ONG do Rio de Janeiro que oferece apoio, prevenção e informação.</p>
+      </a>
+
+      <a href="https://www.instagram.com/abia.abiaids/" target="_blank" class="ong-card">
+        <h3>ABIA <span>(Nacional)</span></h3>
+        <p>Organização nacional focada em direitos, prevenção e advocacy em HIV/AIDS.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Containers */
+#ongs {
+  padding: 100px 20px;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  background: #fefdf9;
+}
+#ongs h2 {
+  font-size: 2.8rem;
+  color: #003366;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+#ongs p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+/* Grid de ONGs */
+.ongs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* Card ONG */
+.ong-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  color: inherit;
+  text-decoration: none;
+  text-align: left;
+}
+.ong-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 10px;
+}
+.ong-card h3 span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #777;
+}
+.ong-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Hover */
+.ong-card:hover {
+  transform: translateY(-8px);
+  border-color: #003366;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Responsividade */
+@media(max-width:600px){
+  .ong-card {
+    text-align: center;
+  }
+}
+</style>
+<!-- Seção de Vídeos -->
+<section id="midia" style="padding:100px 20px; background:#fefdf9; text-align:center;">
+  <h2 style="font-size:3rem; color:#003366; margin-bottom:60px; font-weight:700; font-family:'Inter', sans-serif;">
+    Conteúdo Educativo
+  </h2>
+
+  <div class="media-grid">
+    <div class="media-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/mcGYg4bFC0k" title="História da Infecção pelo HIV no Brasil" allowfullscreen></iframe>
+      </div>
+      <h3>História da Infecção pelo HIV no Brasil</h3>
+    </div>
+    <div class="media-card">
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/CyvZOkVDKcg" title="A diferença entre AIDS e HIV" allowfullscreen></iframe>
+      </div>
+      <h3>A diferença entre AIDS e HIV</h3>
+    </div>
+  </div>
+
+  <style>
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .media-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .media-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    .media-card h3 {
+      font-size: 1.5rem;
+      color: #003366;
+      margin-top: 15px;
+      font-weight:600;
+      font-family:'Inter', sans-serif;
+    }
+
+    @media(max-width: 800px) {
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+      .media-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</section>
+
+<!-- Seção de Mitos vs Realidade -->
+<section id="mitos" style="padding:100px 20px; background:#f5f5f5; text-align:center; font-family:'Inter', sans-serif;">
+  <h2 style="font-size:2.8rem; color:#003366; margin-bottom:50px; font-weight:700;">Mitos vs Realidade</h2>
+
+  <div class="mitos-grid" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1200px; margin:0 auto;">
+    
+    <!-- Card 1 -->
+    <div class="mito-card">
+      <div class="mito-inner">
+        <div class="mito-front">
+          <p style="font-weight:700; color:#003366; margin-bottom:10px;">Mito:</p>
+          <p style="color:#555;">HIV pode ser transmitido pelo beijo.</p>
+        </div>
+        <div class="mito-back">
+          <p style="font-weight:700; color:#003366; margin-bottom:10px;">Realidade:</p>
+          <p style="color:#005b96;">HIV não é transmitido por beijo, suor ou contato físico casual.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="mito-card">
+      <div class="mito-inner">
+        <div class="mito-front">
+          <p style="font-weight:700; color:#003366; margin-bottom:10px;">Mito:</p>
+          <p style="color:#555;">Compartilhar talheres transmite HIV.</p>
+        </div>
+        <div class="mito-back">
+          <p style="font-weight:700; color:#003366; margin-bottom:10px;">Realidade:</p>
+          <p style="color:#005b96;">HIV não sobrevive fora do corpo; compartilhar objetos do cotidiano não transmite o vírus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="mito-card">
+      <div class="mito-inner">
+        <div class="mito-front">
+          <p style="font-weight:700; color:#003366; margin-bottom:10px;">Mito:</p>
+          <p style="color:#555;">Apenas pessoas doentes transmitem HIV.</p>
+        </div>
+        <div class="mito-back">
+          <p style="font-weight:700; color:#003366; margin-bottom:10px;">Realidade:</p>
+          <p style="color:#005b96;">Qualquer pessoa infectada, mesmo sem sintomas, pode transmitir HIV sem prevenção adequada.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .mito-card {
+      width: 280px;
+      height: 180px;
+      perspective: 1000px;
+    }
+    .mito-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .mito-card:hover .mito-inner {
+      transform: rotateY(180deg);
+    }
+    .mito-front, .mito-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 30px 20px;
+      box-sizing: border-box;
+    }
+    .mito-back {
+      transform: rotateY(180deg);
+    }
+    @media(max-width: 800px) {
+      .mitos-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</section>
+<script>
+  // Corrige o flip dos cards para dispositivos móveis e remove bugs
+  document.querySelectorAll('.mito-card').forEach(card => {
+    card.addEventListener('click', () => {
+      card.querySelector('.mito-inner').classList.toggle('flipped');
+    });
+    card.addEventListener('mouseover', () => {
+      card.style.boxShadow = '0 15px 35px rgba(0,0,0,0.12)';
+    });
+    card.addEventListener('mouseout', () => {
+      card.style.boxShadow = '0 10px 25px rgba(0,0,0,0.08)';
+    });
+  });
+</script>
+
+<footer style="background:#f9f9f9; padding:60px 20px 40px; font-family:'Inter', sans-serif; color:#333; border-top:1px solid #e5e5e5;">
+  <div class="footer-container" style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:40px; text-align:center;">
+    
+    <!-- Coluna 1 -->
+    <div>
+      <h3 style="font-size:1.8rem; font-weight:700; color:#003366; margin-bottom:15px;">HIV/AIDS em Foco</h3>
+      <p style="font-size:1rem; line-height:1.7; color:#555;">
+        Projeto de Extensão da <strong>UNICIR</strong><br>
+        Desenvolvido por estudantes de Direito.
+      </p>
+    </div>
+
+    <!-- Coluna 2 -->
+    <div>
+      <h4 style="font-size:1.2rem; font-weight:600; margin-bottom:20px; color:#003366;">Navegação</h4>
+      <ul style="list-style:none; padding:0; margin:0; line-height:2;">
+        <li><a href="#sobre" class="footer-link">Sobre</a></li>
+        <li><a href="#direitos" class="footer-link">Direitos</a></li>
+        <li><a href="#ongs" class="footer-link">ONGs</a></li>
+        <li><a href="#contato" class="footer-link">Contato</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3 -->
+    <div>
+      <h4 style="font-size:1.2rem; font-weight:600; margin-bottom:20px; color:#003366;">Conecte-se</h4>
+      <a href="https://www.instagram.com/direitounicir/" target="_blank" class="social-icon">
+        <i class="fab fa-instagram" style="color:#E1306C; font-size:1.3rem;"></i> @direitounicir
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Linha inferior com participantes -->
+  <div style="text-align:center; margin-top:10px; font-size:0.75rem; color:#777; border-top:1px solid #eee; padding-top:10px;">
+    Desenvolvido por: Beatriz Campos, Marisa Borges, Cleison Rocha, Iago Filipe e Fabrício Ferreira — UNICIR
+  </div>
+
+  <style>
+    .footer-link {
+      text-decoration:none;
+      color:#555;
+      font-size:0.95rem;
+      transition:color 0.3s ease;
+    }
+    .footer-link:hover {
+      color:#003366;
+      text-decoration:underline;
+    }
+
+    .social-icon {
+      text-decoration:none;
+      font-size:1rem;
+      font-weight:600;
+      color:#003366;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:color 0.3s ease, transform 0.3s ease;
+    }
+    .social-icon:hover {
+      color:#003366;
+      transform:translateY(-3px);
+    }
+
+    @media(max-width:768px){
+      .footer-container {
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+    }
+
+    /* Flip card para mito */
+    .mito-inner.flipped {
+      transform: rotateY(180deg) !important;
+    }
+  </style>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Contadores animados
+  function animateNumber(id,target){
+    const element = document.getElementById(id);
+    let start = 0;
+    const duration = 2000;
+    const step = timestamp => {
+      const progress = Math.min((timestamp-startTime)/duration,1);
+      element.textContent = Math.floor(progress*target).toLocaleString();
+      if(progress<1) requestAnimationFrame(step);
+    }
+    const startTime = performance.now();
+    requestAnimationFrame(step);
+  }
+
+  animateNumber('numHIV',39000000);
+  animateNumber('numBrasil',1500000);
+  animateNumber('numFaixa',500000);
+  animateNumber('numTratamento',85);
+
+  // Scroll animation
+  const sections = document.querySelectorAll('section');
+  function revealOnScroll(){
+    const triggerBottom = window.innerHeight*0.85;
+    sections.forEach(section=>{
+      if(section.getBoundingClientRect().top < triggerBottom){
+        section.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll',revealOnScroll);
+  revealOnScroll();
+
+  // Gráfico de fatos
+  const ctx = document.getElementById('graficoFatos');
+  if(ctx){
+    const grafico = new Chart(ctx.getContext('2d'),{
+      type:'bar',
+      data:{
+        labels:['Casos no Brasil','Casos Mundo','Tratamento Eficaz (%)','Maior Incidência 15-34'],
+        datasets:[{
+          label:'Número de Pessoas / Percentual',
+          data:[1500000,39000000,85,500000],
+          backgroundColor:['#003366','#005b96','#0077b6','#0096c7']
+        }]
+      },
+      options:{
+        responsive:true,
+        plugins:{legend:{display:false}, tooltip:{enabled:true}},
+        scales:{y:{beginAtZero:true}}
+      }
+    });
+  }
+</script>
+</body>
+</html>
